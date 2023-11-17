@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import '../app.css';
 	import img404 from '$assets/img/404/404.png';
 	import Footer from '$components/Footer/Footer.svelte';
