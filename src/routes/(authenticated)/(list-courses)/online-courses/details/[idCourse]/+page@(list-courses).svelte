@@ -54,7 +54,7 @@
 					eum quidem!
 				</p>
 			</div>
-			<img src={courseDetails.img_description} alt="course description" />
+			<img src={courseDetails?.img_description} alt="course description" />
 		</div>
 	</div>
 	<!-- get started now -->
@@ -96,7 +96,8 @@
 	<div class="flex justify-center py-[20px] px-[20px]">
 		<div class="max-w-[960px] flex justify-center flex-col gap-[20px]">
 			<h1 class="font-bold text-center text-2xl">Course Curriculum</h1>
-			{#each courseDetails?.listLectures as list}
+			{#each courseDetails?.listLectures ?? [] as list}
+
 				<div class="flex flex-col">
 					<div class="course_container px-[10px]">
 						<h1 class="py-[5px] font-bold">{list?.title}</h1>

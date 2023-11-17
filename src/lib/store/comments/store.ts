@@ -12,7 +12,7 @@ const listComments = writable({ comments: [] as IComment[] });
 
 const getListComments = async (id: string) => {
 	try {
-		const res = await httpService.get(
+		const res = await httpService.get<any>(
 			`https://anime-art-academy-default-rtdb.firebaseio.com/comments/${id}.json`
 		);
 		if (res) {

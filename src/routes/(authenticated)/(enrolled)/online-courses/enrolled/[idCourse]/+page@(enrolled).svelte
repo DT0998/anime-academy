@@ -44,12 +44,13 @@
 		<!-- list course -->
 		<div class="my-[10px] flex flex-col md:flex-row justify-between md:gap-[10px] gap-[10px]">
 			<div class="flex flex-col w-full h-fit gap-[10px]">
-				{#each courseDetails?.listLectures as list}
+				{#each courseDetails?.listLectures || [] as list}
+
 					<div class="bg-white py-[20px] px-[20px] shadow-md flex justify-between w-full h-fit">
 						<div class="flex items-start flex-col justify-start w-full">
 							<div class="flex justify-center flex-col w-full mt-[20px]">
 								<h1 class="font-bold">{list?.title}</h1>
-								<p>0 / {courseDetails.total} complete</p>
+								<p>0 / {courseDetails?.total} complete</p>
 								<div class="flex flex-col gap-[5px]">
 									<!-- list course -->
 									{#each list?.lectures as lecture}
@@ -112,8 +113,5 @@
 	.course-item {
 		background-color: #f9fafd;
 		border-left: 8px solid transparent;
-	}
-	.course-item.active {
-		border-left: 8px solid #ff3777;
 	}
 </style>

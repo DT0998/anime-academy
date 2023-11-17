@@ -4,7 +4,7 @@
 	import { onMount } from 'svelte';
 	import { goto } from '$app/navigation';
 	import { authUser, register } from '$store/auth/store';
-	
+
 	let submitted = false;
 	interface Fields {
 		name?: string;
@@ -27,8 +27,8 @@
 			.max(50, 'Password must be at most 50 characters'),
 		confirmPassword: yup
 			.string()
-			.required('Confirm password is required')
-			.oneOf([yup.ref('password'), null], 'Passwords must match')
+			.oneOf([yup.ref('password'), undefined], 'Passwords must match')
+			.required('Confirm Password is required')
 	});
 	let isValid;
 	// value form

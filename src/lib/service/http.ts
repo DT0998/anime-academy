@@ -8,17 +8,52 @@ const axiosInstance = axios.create({
 
 // interceptors
 axiosInstance.interceptors.response.use(
-	(response) => response.data,
+	(response) => response,
 	(error) => {
 		return Promise.reject(error);
 	}
 );
 
 const httpService = {
-	get: (url: string, config?: any) => axiosInstance.get(url, config),
-	post: (url: string, data: any, config?: any) => axiosInstance.post(url, data, config),
-	put: (url: string, data: any, config?: any) => axiosInstance.put(url, data, config),
-	delete: (url: string, config?: any) => axiosInstance.delete(url, config)
+	get: async <T>(url: string, config?: any): Promise<T | undefined> => {
+		try {
+			const response = await axiosInstance.get<T>(url, config);
+			return response.data;
+		} catch (error) {
+			console.error('HTTP GET Error:', error);
+			return undefined;
+		}
+	},
+	
+	post: async <T>(url: string, data: any, config?: any): Promise<T | undefined> => {
+		try {
+			const response = await axiosInstance.post<T>(url, data, config);
+			return response.data;
+		} catch (error) {
+			console.error('HTTP POST Error:', error);
+			return undefined;
+		}
+	},
+
+	put: async <T>(url: string, data: any, config?: any): Promise<T | undefined> => {
+		try {
+			const response = await axiosInstance.put<T>(url, data, config);
+			return response.data;
+		} catch (error) {
+			console.error('HTTP PUT Error:', error);
+			return undefined;
+		}
+	},
+
+	delete: async <T>(url: string, config?: any): Promise<T | undefined> => {
+		try {
+			const response = await axiosInstance.delete<T>(url, config);
+			return response.data;
+		} catch (error) {
+			console.error('HTTP DELETE Error:', error);
+			return undefined;
+		}
+	}
 };
 
 export default httpService;
