@@ -11,7 +11,7 @@
 		toggleMobileMenu,
 		toggleOpenSocial,
 		toggleProfileMenu
-	} from '$store/nav/store';
+	} from '$store/nav';
 	import NavBar from '$components/NavBar/NavBar.svelte';
 	import Footer from '$components/Footer/Footer.svelte';
 	import { authUser, logout, onChangeUserFirebase } from '$store/auth';

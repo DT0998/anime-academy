@@ -14,7 +14,7 @@
 		toggleMobileMenu,
 		toggleOpenSocial,
 		toggleProfileMenu
-	} from '$store/nav/store';
+	} from '$store/nav';
 
 	// check and set auth user
 	onMount(() => {
