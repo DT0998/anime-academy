@@ -4,6 +4,7 @@
 	import { goto } from '$app/navigation';
 	import Header from '$components/Header/Header.svelte';
 	import { listCourses } from '$utils/data/dataCourses';
+	import { authUser } from '$store/auth';
 	// follow details id
 	let id: string;
 	id = $page.params.idCourse;
@@ -11,7 +12,11 @@
 	const courseDetails = course?.detail;
 
 	const navigateToCourseEnroll = (id: number | string) => {
-		goto(`/online-courses/enrolled/${id}`);
+		if($authUser) {
+			goto(`/online-courses/enrolled/${id}`);
+		} else {
+			goto(`/login`);
+		}
 	};
 </script>
 

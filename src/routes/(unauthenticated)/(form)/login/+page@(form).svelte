@@ -3,7 +3,7 @@
 	import * as yup from 'yup';
 	import { onMount } from 'svelte';
 	import { goto } from '$app/navigation';
-	import { authUser, login } from '$store/auth/store';
+	import { authUser, login } from '$store/auth';
 	
 	let submitted = false;
 	interface Fields {

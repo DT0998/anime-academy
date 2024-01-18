@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
-	import { authUser } from '$store/auth/store';
+	import { authUser } from '$store/auth';
 	export let background: string | undefined;
 	export let title: string | undefined;
 	export let titleSub: string | undefined = undefined;

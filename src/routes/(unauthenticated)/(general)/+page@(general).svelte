@@ -3,7 +3,7 @@
 	import Header from '$components/Header/Header.svelte';
 	import User from '$components/User/User.svelte';
 	import Card from '$components/Card/Card.svelte';
-	import { authUser } from '$store/auth/store';
+	import { authUser } from '$store/auth';
 	import videoPr from '$assets/media/home/video.mp4';
 	import thumbnailVideo from '$assets/img/home/thumbnail.png';
 	import backgroundHeader from '$assets/img/home/banner-1.png';

@@ -6,7 +6,7 @@
 	import { ReorderThreeOutline } from 'svelte-ionicons';
 	import NavBar from '$components/NavBar/NavBar.svelte';
 	import Footer from '$components/Footer/Footer.svelte';
-	import { authUser, logout, onChangeUserFirebase } from '$store/auth/store';
+	import { authUser, logout, onChangeUserFirebase } from '$store/auth';
 	import {
 		isOpenMobileMenu,
 		isOpenProfileMenu,

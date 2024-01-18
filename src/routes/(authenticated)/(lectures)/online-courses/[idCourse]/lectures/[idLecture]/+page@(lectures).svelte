@@ -4,11 +4,11 @@
 	import onePayOff from '$assets/img/online-course/enrolled/one-pay.png';
 	import avatar from '$assets/img/profile/profile.png';
 	import { ChevronForwardOutline } from 'svelte-ionicons';
-	import { authUser } from '$store/auth/store';
+	import { authUser } from '$store/auth';
 	import { push, ref } from 'firebase/database';
 	import * as yup from 'yup';
 	import toast from 'svelte-french-toast';
-	import { getListComments, listComments } from '$store/comments/store';
+	import { getListComments, listComments } from '$store/comments';
 	import { firebaseDatabase } from '$firebase/index';
 	import { listCourses } from '$utils/data/dataCourses';
 

@@ -14,7 +14,7 @@
 	} from '$store/nav/store';
 	import NavBar from '$components/NavBar/NavBar.svelte';
 	import Footer from '$components/Footer/Footer.svelte';
-	import { authUser, logout, onChangeUserFirebase } from '$store/auth/store';
+	import { authUser, logout, onChangeUserFirebase } from '$store/auth';
 
 	// check and set auth user
 	onMount(() => {
@@ -124,7 +124,7 @@
 			/>
 			{#if $isOpenMobileMenu}
 				<ul
-					class="menu-mobile-content absolute right-0 top-full bg-white rounded-lg shadow-xl mt-[0px] z-50 w-[200px] max-h-[300px]"
+					class="menu-mobile-content absolute right-0 top-full bg-white rounded-lg shadow-xl mt-[0px] z-50 w-[200px]"
 				>
 					<li class="p-[8px] menu-content">
 						<a href="/about">About</a>

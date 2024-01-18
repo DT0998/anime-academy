@@ -5,7 +5,7 @@
 	import { ReorderThreeOutline } from 'svelte-ionicons';
 	import avatar from '$assets/img/profile/profile.png';
 	import NavBar from '$components/NavBar/NavBar.svelte';
-	import { authUser, logout, onChangeUserFirebase } from '$store/auth/store';
+	import { authUser, logout, onChangeUserFirebase } from '$store/auth';
 	import {
 		isOpenMobileMenu,
 		isOpenProfileMenu,
@@ -75,7 +75,7 @@
 			/>
 			{#if $isOpenMobileMenu}
 				<ul
-					class="menu-mobile-content absolute right-0 top-full bg-white rounded-lg shadow-xl mt-[0px] z-50 w-[200px] max-h-[300px]"
+					class="menu-mobile-content absolute right-0 top-full bg-white rounded-lg shadow-xl mt-[0px] z-50 w-[200px]"
 				>
 					<li class="p-[8px] menu-content">
 						<a href="/about">About</a>

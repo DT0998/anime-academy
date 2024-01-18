@@ -2,7 +2,7 @@
 	import { onMount } from 'svelte';
 	import ProgressBar from '$components/ProgressBar/ProgressBar.svelte';
 	import SideBar from '$components/SideBar/SideBar.svelte';
-	import { onChangeUserFirebase } from '$store/auth/store';
+	import { onChangeUserFirebase } from '$store/auth';
 	import '../../../app.css';
 	import { Toaster } from 'svelte-french-toast';
 	import {
