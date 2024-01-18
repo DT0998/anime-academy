@@ -3,7 +3,7 @@
 	import { TvOutline } from 'svelte-ionicons';
 	import { goto } from '$app/navigation';
 	import Header from '$components/Header/Header.svelte';
-	import { listCourses } from '$utils/dataCourses';
+	import { listCourses } from '$utils/data/dataCourses';
 	// follow details id
 	let id: string;
 	id = $page.params.idCourse;

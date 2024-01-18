@@ -24,7 +24,7 @@ const httpService = {
 			return undefined;
 		}
 	},
-	
+
 	post: async <T>(url: string, data: any, config?: any): Promise<T | undefined> => {
 		try {
 			const response = await axiosInstance.post<T>(url, data, config);

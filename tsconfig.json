@@ -16,7 +16,7 @@
 			"$store/*": ["./lib/store/*"],
 			"$utils/*": ["./lib/utils/*"],
 			"$service/*": ["./lib/service/*"],
-			"$firebase/*": ["./lib/firebase/*"]
+			"$firebase/*": ["./lib/firebase/*"],
 		}
 	}
 	// Path aliases are handled by https://kit.svelte.dev/docs/configuration#alias

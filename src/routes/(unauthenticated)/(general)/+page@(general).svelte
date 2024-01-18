@@ -4,7 +4,6 @@
 	import User from '$components/User/User.svelte';
 	import Card from '$components/Card/Card.svelte';
 	import { authUser } from '$store/auth/store';
-	import { listCourses } from '$utils/dataCourses';
 	import videoPr from '$assets/media/home/video.mp4';
 	import thumbnailVideo from '$assets/img/home/thumbnail.png';
 	import backgroundHeader from '$assets/img/home/banner-1.png';
@@ -19,6 +18,7 @@
 	import user1 from '$assets/img/user-reviews/user-1.png';
 	import user2 from '$assets/img/user-reviews/user-2.jpg';
 	import user3 from '$assets/img/user-reviews/user-3.png';
+	import { listCourses } from '$utils/data/dataCourses';
 
 	// media video
 	let videoPaused: boolean = true;

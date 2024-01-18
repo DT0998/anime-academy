@@ -4,8 +4,8 @@
 	import { onMount } from 'svelte';
 	import { goto } from '$app/navigation';
 	import Card from '$components/Card/Card.svelte';
-	import { listCourses } from '$utils/dataCourses';
 	import { authUser } from '$store/auth/store';
+	import { listCourses } from '$utils/data/dataCourses';
 
 	let isOpenCategory: boolean = false;
 	const handleOpenCategory = () => {

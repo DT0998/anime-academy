@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import { onDestroy, onMount } from 'svelte';
-	import { listCourses } from '$utils/dataCourses';
 	import onePayOff from '$assets/img/online-course/enrolled/one-pay.png';
 	import avatar from '$assets/img/profile/profile.png';
 	import { ChevronForwardOutline } from 'svelte-ionicons';
@@ -11,6 +10,7 @@
 	import toast from 'svelte-french-toast';
 	import { getListComments, listComments } from '$store/comments/store';
 	import { firebaseDatabase } from '$firebase/index';
+	import { listCourses } from '$utils/data/dataCourses';
 
 	interface Fields {
 		created_at?: Date;
@@ -46,7 +46,7 @@
 
 	// reactive statement change route
 	$: {
-		course = listCourses.find((c) => c.id === parseInt(id));
+		course = listCourses.find((course) => course.id === parseInt(id));
 		courseDetails = course?.detail;
 		listLectures = courseDetails?.listLectures;
 		lecture = listLectures

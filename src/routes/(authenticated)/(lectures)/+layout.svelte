@@ -13,7 +13,7 @@
 	} from 'svelte-ionicons';
 	import { goto } from '$app/navigation';
 	import { page } from '$app/stores';
-	import { listCourses } from '$utils/dataCourses';
+	import { listCourses } from '$utils/data/dataCourses';
 
 	// check and set auth user
 	onMount(() => {

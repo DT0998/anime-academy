@@ -2,9 +2,9 @@
 	import { page } from '$app/stores';
 	import { CheckmarkCircle, EllipseOutline } from 'svelte-ionicons';
 	import author from '$assets/img/online-course/enrolled/author.webp';
-	import { listCourses } from '$utils/dataCourses';
 	import { goto } from '$app/navigation';
 	import ProgressBar from '$components/ProgressBar/ProgressBar.svelte';
+	import { listCourses } from '$utils/data/dataCourses';
 	// follow list course id
 	let id: string;
 	id = $page.params.idCourse;
