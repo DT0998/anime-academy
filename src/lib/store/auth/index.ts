@@ -3,28 +3,24 @@ import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } f
 import toast from 'svelte-french-toast';
 import { goto } from '$app/navigation';
 import { firebaseAuth } from '$firebase/index';
-import {
-	getLocalStorage,
-	removeLocalStorage,
-	setLocalStorage
-} from '$service/localStorage/localStorage';
+import localStorageService from '$service/localStorage';
 
 interface AuthUser {
 	uid: string | null;
 	email: string | null;
 }
 
-const authUser = writable<AuthUser | null>(getLocalStorage('authUser'));
+const authUser = writable<AuthUser | null>(localStorageService.get('authUser'));
 
 const onChangeUserFirebase = () => {
 	firebaseAuth.onAuthStateChanged((user) => {
 		if (user) {
 			const { uid, email } = user;
 			authUser.set({ uid, email });
-			setLocalStorage('authUser', user);
+			localStorageService.set('authUser', user);
 		} else {
 			authUser.set(null);
-			removeLocalStorage('authUser');
+			localStorageService.remove('authUser');
 		}
 	});
 };
