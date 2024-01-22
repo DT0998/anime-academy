@@ -21,7 +21,6 @@ const httpService = {
 			return response.data;
 		} catch (error) {
 			console.error('HTTP GET Error:', error);
-			return undefined;
 		}
 	},
 
@@ -31,7 +30,6 @@ const httpService = {
 			return response.data;
 		} catch (error) {
 			console.error('HTTP POST Error:', error);
-			return undefined;
 		}
 	},
 
@@ -41,7 +39,6 @@ const httpService = {
 			return response.data;
 		} catch (error) {
 			console.error('HTTP PUT Error:', error);
-			return undefined;
 		}
 	},
 
@@ -51,7 +48,6 @@ const httpService = {
 			return response.data;
 		} catch (error) {
 			console.error('HTTP DELETE Error:', error);
-			return undefined;
 		}
 	}
 };
