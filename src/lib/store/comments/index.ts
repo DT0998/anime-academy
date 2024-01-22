@@ -1,4 +1,4 @@
-import httpService from '$service/http/http';
+import httpService from '$service/http';
 import { writable } from 'svelte/store';
 
 interface IComment {
