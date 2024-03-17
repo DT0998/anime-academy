@@ -22,18 +22,18 @@
 		}
 	}
 
-	function addNewListener(query: string) {
+	const addNewListener = (query: string) => {
 		mql = window.matchMedia(query);
 		mqlListener = (v) => (matches = v.matches);
 		mql.addListener(mqlListener);
 		matches = mql.matches;
-	}
+	};
 
-	function removeActiveListener() {
+	const removeActiveListener = () => {
 		if (mql && mqlListener) {
 			mql.removeListener(mqlListener);
 		}
-	}
+	};
 </script>
 
 <slot {matches} />
