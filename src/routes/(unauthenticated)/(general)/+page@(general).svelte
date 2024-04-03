@@ -168,7 +168,7 @@
 		<strong class="py-[15px]"
 			>The first lesson is totally free, so why not go and take a look?</strong
 		>
-		<div class="mt-[30px] w-full h-full flex flex-wrap justify-center">
+		<div class="mt-[30px] w-full h-full flex flex-col items-center flex-wrap justify-center">
 			<img src={banner6} alt="banner" />
 			<img src={banner7} alt="banner" />
 		</div>
