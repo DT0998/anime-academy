@@ -4,6 +4,7 @@
 	import { onMount } from 'svelte';
 	import { goto } from '$app/navigation';
 	import { authUser, login } from '$store/auth';
+	import { transformYupErrorsIntoObject } from '$utils/yup';
 	
 	let submitted = false;
 	interface Fields {
@@ -19,6 +20,7 @@
 			.min(8, 'Password must be at least 8 characters')
 			.max(50, 'Password must be at most 50 characters')
 	});
+
 	let isValid;
 	// value form
 	let valuesField = {
@@ -36,9 +38,7 @@
 			}
 			errors = {};
 		} catch (error: any) {
-			errors = error.inner.reduce((acc: any, err: any) => {
-				return { ...acc, [err.path]: err.message };
-			}, {});
+			errors = transformYupErrorsIntoObject(error);
 		} finally {
 			submitted = false;
 		}

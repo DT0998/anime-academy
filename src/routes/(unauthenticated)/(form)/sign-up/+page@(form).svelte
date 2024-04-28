@@ -4,6 +4,7 @@
 	import { onMount } from 'svelte';
 	import { goto } from '$app/navigation';
 	import { authUser, register } from '$store/auth';
+	import { transformYupErrorsIntoObject } from '$utils/yup';
 
 	let submitted = false;
 	interface Fields {
@@ -38,7 +39,9 @@
 		password: '',
 		confirmPassword: ''
 	};
+
 	let errors: Fields = {};
+
 	const handleRegister = async () => {
 		try {
 			submitted = true;
@@ -48,9 +51,7 @@
 			}
 			errors = {};
 		} catch (error: any) {
-			errors = error.inner.reduce((acc: any, err: any) => {
-				return { ...acc, [err.path]: err.message };
-			}, {});
+			errors = transformYupErrorsIntoObject(error);
 		} finally {
 			submitted = false;
 		}
@@ -92,8 +93,8 @@
 					<p class="text-red-600 py-[10px]">{errors.email}</p>
 				{/if}
 			</div>
-			<div class="px-[15px] flex flex-col lg:flex-row gap-[20px]">
-				<div class="lg:w-2/4 flex flex-col">
+			<div class="px-[15px] flex flex-col xl:flex-row xl:gap-[20px]">
+				<div class="xl:w-2/4 flex flex-col">
 					<label for="password">Password</label>
 					<input
 						type="password"
@@ -106,7 +107,7 @@
 						<p class="text-red-600 py-[10px]">{errors.password}</p>
 					{/if}
 				</div>
-				<div class="lg:w-2/4 flex flex-col">
+				<div class="xl:w-2/4 flex flex-col">
 					<label for="password">Confirm Password</label>
 					<input
 						type="password"

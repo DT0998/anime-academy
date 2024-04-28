@@ -27,34 +27,48 @@ const onChangeUserFirebase = () => {
 
 const login = async (email: string, password: string) => {
 	try {
-		await signInWithEmailAndPassword(firebaseAuth, email, password);
-		goto('/');
-		toast.success('Logged in successfully');
-	} catch (error: any) {
-		if (error.code === 'auth/invalid-login-credentials') {
-			toast.error('Account not exist');
-		}
+		await signInWithEmailAndPassword(firebaseAuth, email, password)
+			.then(() => {
+				goto('/');
+				toast.success('Logged in successfully');
+			})
+			.catch((error) => {
+				handleErrorFirebase(error);
+			});
+	} catch (error) {
+		console.error(error);
 	}
 };
 
 const register = async (email: string, password: string) => {
 	try {
-		await createUserWithEmailAndPassword(firebaseAuth, email, password);
-		toast.success('Account created successfully');
-		goto('/login');
-	} catch (error: any) {
-		if (error.code === 'auth/email-already-in-use') {
-			toast.error('Email already in use');
-		}
-	}
-};
-const logout = async () => {
-	try {
-		await signOut(firebaseAuth);
-		goto('/');
-		authUser.set(null);
+		await createUserWithEmailAndPassword(firebaseAuth, email, password)
+			.then(() => {
+				goto('/login');
+				toast.success('Account created successfully');
+			})
+			.catch((error) => {
+				handleErrorFirebase(error);
+			});
 	} catch (error) {
 		console.error(error);
 	}
 };
+
+const logout = async () => {
+	await signOut(firebaseAuth).then(() => {
+		goto('/');
+		authUser.set(null);
+	});
+};
+
+const handleErrorFirebase = (error: { code: string }) => {
+	if (error.code === 'auth/invalid-login-credentials') {
+		toast.error('Account not exist');
+	}
+	if (error.code === 'auth/email-already-in-use') {
+		toast.error('Email already in use');
+	}
+};
+
 export { authUser, login, register, logout, onChangeUserFirebase };
