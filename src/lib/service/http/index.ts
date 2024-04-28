@@ -12,7 +12,7 @@ axiosInstance.interceptors.request.use(
 		return config;
 	},
 	(error) => {
-		handleError(error);
+		handleErrorRequest(error);
 	}
 );
 
@@ -22,12 +22,16 @@ axiosInstance.interceptors.response.use(
 		return response;
 	},
 	(error) => {
-		handleError(error);
+		handleErrorResponse(error);
 	}
 );
 
-const handleError = (error: any) => {
-	console.error(error);
+const handleErrorResponse = (error: any) => {
+	console.log("error response", error);
+};
+
+const handleErrorRequest = (error: any) => {
+	console.log("error request", error);
 };
 
 const httpService = {

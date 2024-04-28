@@ -26,33 +26,25 @@ const onChangeUserFirebase = () => {
 };
 
 const login = async (email: string, password: string) => {
-	try {
-		await signInWithEmailAndPassword(firebaseAuth, email, password)
-			.then(() => {
-				goto('/');
-				toast.success('Logged in successfully');
-			})
-			.catch((error) => {
-				handleErrorFirebase(error);
-			});
-	} catch (error) {
-		console.error(error);
-	}
+	await signInWithEmailAndPassword(firebaseAuth, email, password)
+		.then(() => {
+			goto('/');
+			toast.success('Logged in successfully');
+		})
+		.catch((error) => {
+			handleErrorFirebase(error);
+		});
 };
 
 const register = async (email: string, password: string) => {
-	try {
-		await createUserWithEmailAndPassword(firebaseAuth, email, password)
-			.then(() => {
-				goto('/login');
-				toast.success('Account created successfully');
-			})
-			.catch((error) => {
-				handleErrorFirebase(error);
-			});
-	} catch (error) {
-		console.error(error);
-	}
+	await createUserWithEmailAndPassword(firebaseAuth, email, password)
+		.then(() => {
+			goto('/login');
+			toast.success('Account created successfully');
+		})
+		.catch((error) => {
+			handleErrorFirebase(error);
+		});
 };
 
 const logout = async () => {
